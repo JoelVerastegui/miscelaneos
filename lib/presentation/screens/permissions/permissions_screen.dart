@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:miscelaneos/presentation/providers/app_state_provider.dart';
 import 'package:miscelaneos/presentation/providers/permissions/permissions_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
