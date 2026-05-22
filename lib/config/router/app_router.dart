@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:miscelaneos/presentation/screens/home/home_screen.dart';
 import 'package:miscelaneos/presentation/screens/permissions/permissions_screen.dart';
+import 'package:miscelaneos/presentation/screens/pokemons/pokemon_screen.dart';
+import 'package:miscelaneos/presentation/screens/pokemons/pokemons_screen.dart';
 import 'package:miscelaneos/presentation/screens/sensors/accelerometer_screen.dart';
 import 'package:miscelaneos/presentation/screens/sensors/compass_screen.dart';
 import 'package:miscelaneos/presentation/screens/sensors/gyroscope_ball_screen.dart';
@@ -42,6 +44,17 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/compass',
       builder: (context, state) => CompassScreen(),
+    ),
+
+    GoRoute(
+      path: '/pokemons',
+      builder: (context, state) => PokemonsScreen(),
+      routes: [
+        GoRoute(
+          path: ':id',
+          builder: (context, state) => PokemonScreen(id: state.pathParameters['id'] ?? ''),
+        ),
+      ]
     ),
   ]
 );
