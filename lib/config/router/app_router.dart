@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:miscelaneos/presentation/screens/biometrics/biometric_screen.dart';
 import 'package:miscelaneos/presentation/screens/home/home_screen.dart';
 import 'package:miscelaneos/presentation/screens/permissions/permissions_screen.dart';
 import 'package:miscelaneos/presentation/screens/pokemons/pokemon_screen.dart';
@@ -55,6 +56,11 @@ final appRouter = GoRouter(
           builder: (context, state) => PokemonScreen(id: state.pathParameters['id'] ?? ''),
         ),
       ]
+    ),
+
+    GoRoute(
+      path: '/biometrics',
+      builder: (context, state) => BiometricScreen(),
     ),
   ]
 );
