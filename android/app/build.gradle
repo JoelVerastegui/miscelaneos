@@ -5,6 +5,21 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
+import java.util.Properties
+
+// 1. Localizar el archivo .env en la raíz del proyecto de Flutter
+def envFile = rootProject.file("../.env")
+def envProperties = new Properties()
+
+// 2. Si el archivo existe, cargar sus valores de manera segura
+if (envFile.exists()) {
+    envFile.withInputStream { stream -> 
+        envProperties.load(stream) 
+    }
+} else {
+    logger.warn(".env file not found at project root!")
+}
+
 android {
     namespace = "com.joelverastegui.miscelaneos"
     compileSdk = 36
@@ -28,6 +43,12 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        
+        // 2. Extraer el valor del archivo .env
+        def googleMapsApiKey = envProperties.getProperty('GOOGLE_MAPS_API_KEY') ?: ""
+
+        // 3. Inyectar en manifestPlaceholders usando la sintaxis moderna de mapas
+        manifestPlaceholders.put("GOOGLE_MAPS_API_KEY", googleMapsApiKey)
     }
 
     buildTypes {
