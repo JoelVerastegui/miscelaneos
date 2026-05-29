@@ -21,6 +21,9 @@ final List<MenuItem> menuItems = [
   MenuItem(title: 'Brújula', icon: Icons.explore, route: '/compass'),
   MenuItem(title: 'Pokemons', icon: Icons.catching_pokemon, route: '/pokemons'),
   MenuItem(title: 'Biométricos', icon: Icons.fingerprint, route: '/biometrics'),
+  MenuItem(title: 'Ubicación', icon: Icons.pin_drop, route: '/location'),
+  MenuItem(title: 'Mapas', icon: Icons.map_outlined, route: '/maps'),
+  MenuItem(title: 'Mapa Controlado', icon: Icons.gamepad_outlined, route: '/controlled-map'),
 ];
 
 class MainMenu extends StatelessWidget {
@@ -73,7 +76,7 @@ class _HomeMenuItem extends StatelessWidget {
       
             Icon(icon, color: Colors.white, size: 40.0),
       
-            Text(title, style: TextStyle(color: Colors.white)),
+            Text(title, textAlign: TextAlign.center, style: TextStyle(color: Colors.white)),
       
           ],
         ),

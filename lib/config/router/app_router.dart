@@ -1,6 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'package:miscelaneos/presentation/screens/biometrics/biometric_screen.dart';
 import 'package:miscelaneos/presentation/screens/home/home_screen.dart';
+import 'package:miscelaneos/presentation/screens/location/controlled_map_screen.dart';
+import 'package:miscelaneos/presentation/screens/location/location_screen.dart';
+import 'package:miscelaneos/presentation/screens/location/maps_screen.dart';
 import 'package:miscelaneos/presentation/screens/permissions/permissions_screen.dart';
 import 'package:miscelaneos/presentation/screens/pokemons/pokemon_screen.dart';
 import 'package:miscelaneos/presentation/screens/pokemons/pokemons_screen.dart';
@@ -61,6 +64,21 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/biometrics',
       builder: (context, state) => BiometricScreen(),
+    ),
+
+    GoRoute(
+      path: '/location',
+      builder: (context, state) => LocationScreen(),
+    ),
+
+    GoRoute(
+      path: '/maps',
+      builder: (context, state) => MapsScreen(),
+    ),
+
+    GoRoute(
+      path: '/controlled-map',
+      builder: (context, state) => ControlledMapScreen(),
     ),
   ]
 );
