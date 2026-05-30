@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:miscelaneos/presentation/screens/badge/badge_screen.dart';
 import 'package:miscelaneos/presentation/screens/biometrics/biometric_screen.dart';
 import 'package:miscelaneos/presentation/screens/home/home_screen.dart';
 import 'package:miscelaneos/presentation/screens/location/controlled_map_screen.dart';
@@ -80,5 +81,10 @@ final appRouter = GoRouter(
       path: '/controlled-map',
       builder: (context, state) => ControlledMapScreen(),
     ),
+
+    GoRoute(
+      path: '/badge',
+      builder: (context, state) => BadgeScreen(),
+    )
   ]
 );
