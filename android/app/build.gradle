@@ -46,9 +46,11 @@ android {
         
         // 2. Extraer el valor del archivo .env
         def googleMapsApiKey = envProperties.getProperty('GOOGLE_MAPS_API_KEY') ?: ""
+        def googleAdmobAppId = envProperties.getProperty('GOOGLE_ADMOB_APP_ID') ?: ""
 
         // 3. Inyectar en manifestPlaceholders usando la sintaxis moderna de mapas
         manifestPlaceholders.put("GOOGLE_MAPS_API_KEY", googleMapsApiKey)
+        manifestPlaceholders.put("GOOGLE_ADMOB_APP_ID", googleAdmobAppId)
     }
 
     buildTypes {

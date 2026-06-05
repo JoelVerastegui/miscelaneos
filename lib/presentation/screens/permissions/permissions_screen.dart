@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:miscelaneos/presentation/providers/ads/show_ads_provider.dart';
 import 'package:miscelaneos/presentation/providers/permissions/permissions_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class PermissionsScreen extends StatelessWidget {
   const PermissionsScreen({super.key});
@@ -23,35 +23,43 @@ class _PermissionsView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final permissions = ref.watch(permissionsProvider);
+    final showAds = ref.watch(showAdsProvider);
 
     return ListView(
       children: [
         _CheckboxListTileView(
           value: permissions.cameraGranted,
           title: 'Cámara',
-          status: permissions.camera,
+          subtitle: '${permissions.camera}',
           onChanged: (_) => ref.read(permissionsProvider.notifier).requestCameraAccess(),
         ),
 
         _CheckboxListTileView(
           value: permissions.photoLibraryGranted,
           title: 'Galería',
-          status: permissions.photoLibrary,
+          subtitle: '${permissions.photoLibrary}',
           onChanged: (_) => ref.read(permissionsProvider.notifier).requestPhotoLibraryAccess(),
         ),
         
         _CheckboxListTileView(
           value: permissions.locationGranted,
           title: 'Location',
-          status: permissions.location,
+          subtitle: '${permissions.location}',
           onChanged: (_) => ref.read(permissionsProvider.notifier).requestLocationAccess(),
         ),
         
         _CheckboxListTileView(
           value: permissions.sensorGranted,
           title: 'Sensores',
-          status: permissions.sensors,
+          subtitle: '${permissions.sensors}',
           onChanged: (_) => ref.read(permissionsProvider.notifier).requestSensorsAccess(),
+        ),
+
+        _CheckboxListTileView(
+          value: showAds,
+          title: 'Show Ads',
+          subtitle: 'Esta opción muestra y oculta ads',
+          onChanged: (_) => ref.read(showAdsProvider.notifier).toggleAds(),
         ),
       ],
     );
@@ -61,13 +69,13 @@ class _PermissionsView extends ConsumerWidget {
 class _CheckboxListTileView extends StatelessWidget {
   final bool value;
   final String title;
-  final PermissionStatus status;
+  final String subtitle;
   final Function(bool?)? onChanged;
 
   const _CheckboxListTileView({
     required this.value,
     required this.title,
-    required this.status,
+    required this.subtitle,
     required this.onChanged,
   });
 
@@ -77,7 +85,7 @@ class _CheckboxListTileView extends StatelessWidget {
     return CheckboxListTile(
       value: value,
       title: Text(title),
-      subtitle: Text('$status'), 
+      subtitle: Text(subtitle), 
       onChanged: onChanged,
     );
   }

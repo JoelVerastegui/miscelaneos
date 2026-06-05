@@ -25,6 +25,8 @@ final List<MenuItem> menuItems = [
   MenuItem(title: 'Mapas', icon: Icons.map_outlined, route: '/maps'),
   MenuItem(title: 'Mapa Controlado', icon: Icons.gamepad_outlined, route: '/controlled-map'),
   MenuItem(title: 'Badge', icon: Icons.notifications_on_outlined, route: '/badge'),
+  MenuItem(title: 'Ad Full', icon: Icons.ad_units_sharp, route: '/ad-fullscreen'),
+  MenuItem(title: 'Ad Reward', icon: Icons.castle_sharp, route: '/ad-rewarded'),
 ];
 
 class MainMenu extends StatelessWidget {

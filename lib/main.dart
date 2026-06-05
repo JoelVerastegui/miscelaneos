@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:miscelaneos/config/plugins/quick_actions_plugin.dart';
 import 'package:miscelaneos/config/router/app_router.dart';
 import 'package:miscelaneos/config/theme/app_theme.dart';
 import 'package:miscelaneos/presentation/providers/app_state_provider.dart';
 import 'package:miscelaneos/presentation/providers/permissions/permissions_provider.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await MobileAds.instance.initialize();
 
   QuickActionsPlugin.registerActions();
 

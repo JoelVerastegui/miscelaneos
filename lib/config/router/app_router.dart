@@ -1,4 +1,6 @@
 import 'package:go_router/go_router.dart';
+import 'package:miscelaneos/presentation/screens/ads/ad_full_screen.dart';
+import 'package:miscelaneos/presentation/screens/ads/ad_rewarded_screen.dart';
 import 'package:miscelaneos/presentation/screens/badge/badge_screen.dart';
 import 'package:miscelaneos/presentation/screens/biometrics/biometric_screen.dart';
 import 'package:miscelaneos/presentation/screens/home/home_screen.dart';
@@ -85,6 +87,16 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/badge',
       builder: (context, state) => BadgeScreen(),
-    )
+    ),
+
+    GoRoute(
+      path: '/ad-fullscreen',
+      builder: (context, state) => AdFullScreen(),
+    ),
+
+    GoRoute(
+      path: '/ad-rewarded',
+      builder: (context, state) => AdRewardedScreen(),
+    ),
   ]
 );
