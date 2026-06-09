@@ -3,6 +3,7 @@ import 'package:miscelaneos/presentation/screens/ads/ad_full_screen.dart';
 import 'package:miscelaneos/presentation/screens/ads/ad_rewarded_screen.dart';
 import 'package:miscelaneos/presentation/screens/badge/badge_screen.dart';
 import 'package:miscelaneos/presentation/screens/biometrics/biometric_screen.dart';
+import 'package:miscelaneos/presentation/screens/dbs/db_pokemons_screen.dart';
 import 'package:miscelaneos/presentation/screens/home/home_screen.dart';
 import 'package:miscelaneos/presentation/screens/location/controlled_map_screen.dart';
 import 'package:miscelaneos/presentation/screens/location/location_screen.dart';
@@ -97,6 +98,11 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/ad-rewarded',
       builder: (context, state) => AdRewardedScreen(),
+    ),
+
+    GoRoute(
+      path: '/db-pokemons',
+      builder: (context, state) => DbPokemonsScreen(),
     ),
   ]
 );
